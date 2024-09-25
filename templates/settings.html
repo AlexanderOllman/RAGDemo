@@ -1,0 +1,15 @@
+<!-- settings.html -->
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+    <label for="llm-endpoint" class="form-label">LLM Endpoint</label>
+    <input type="text" class="form-control" id="llm-endpoint" value="{{ llm_endpoint }}">
+</div>
+<div class="mb-3">
+    <h3>Uploaded Files</h3>
+    <ul id="uploaded-files-list"></ul>
+</div>
+{% endblock %}
