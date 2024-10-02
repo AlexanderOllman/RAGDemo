@@ -5,6 +5,23 @@ from chromadb.config import Settings
 from sentence_transformers import SentenceTransformer
 import os
 import json
+import warnings
+
+#from pymilvus import Collection, CollectionSchema, DataType, FieldSchema, connections
+from langchain_milvus.retrievers import MilvusCollectionHybridSearchRetriever
+from langchain_community.embeddings.openai import OpenAIEmbeddings
+from langchain_milvus import Milvus
+from langchain_community.document_loaders import PyPDFLoader
+from langchain.prompts import PromptTemplate
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+#import tiktoken
+from langchain_community.chat_models import ChatOpenAI
+from langchain.chains import RetrievalQA
+from langchain.chains import RetrievalQAWithSourcesChain
+from langchain_core._api.deprecation import LangChainDeprecationWarning
+from langchain_nvidia_ai_endpoints import ChatNVIDIA
+from langchain_nvidia_ai_endpoints import NVIDIAEmbeddings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -105,4 +122,5 @@ def retrieve_from_vector_db(query):
     return results
 
 if __name__ == '__main__':
+    # socketio.run(app, debug=True)
     socketio.run(app, debug=True, host='0.0.0.0', port='8080')

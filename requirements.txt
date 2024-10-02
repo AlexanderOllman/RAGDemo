@@ -2,3 +2,8 @@ flask
 flask-socketio 
 chromadb 
 sentence-transformers
+langchain
+langchain-core
+langchain-community
+langchain-milvus
+langchain-nvidia-ai-endpoints
